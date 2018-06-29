@@ -15,7 +15,6 @@ import java.util.Enumeration;
  * 实现RequestInterceptor，用于设置feign全局请求模板
  */
 @Component
-@EnableFeignClients(basePackages = "com.nmm.study")
 public class FeignRequestIntercepter implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
