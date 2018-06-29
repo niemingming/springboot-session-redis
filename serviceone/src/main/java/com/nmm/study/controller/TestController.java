@@ -1,5 +1,6 @@
 package com.nmm.study.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,9 @@ import java.util.Enumeration;
  */
 @Controller
 public class TestController {
+    @Autowired
+    private ControllerInterface controllerInterface;
+
     /**
      * session设置
      * @param key
@@ -45,5 +49,16 @@ public class TestController {
     @RequestMapping("/getSession/{key}")
     public String getSession(@PathVariable String key ,HttpServletRequest request){
         return request.getSession().getAttribute(key) + "---- sessionId:" + request.getSession().getId() ;
+    }
+
+    /**
+     * 测试feign的session问题。
+     * @param key
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/testFeign/{key}")
+    public String testFeign(@PathVariable String key,HttpServletRequest request) {
+        return controllerInterface.getSession(key);
     }
 }

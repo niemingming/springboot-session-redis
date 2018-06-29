@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  * @description
  */
 @Controller
-public class TestController {
+public class TestController{
     /**
      * session设置
      * @param key

@@ -4,3 +4,7 @@ spring:
     port: 6379
 server:
   port: 8080
+feign:
+  hystrix:
+  #关闭feign的熔断
+    enabled: false
