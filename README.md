@@ -4,7 +4,9 @@ springboot+springsession+redis实现session共
 * [2、feign框架导致session共享失效](#feign)
 
 <h2 id="session">springboot+springsession+redis</h2>
+
 # 1、引入springsession和springredis的依赖
+
 ```
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -78,6 +80,7 @@ server:
 原生的Cookie中获取SessionID实现。因此我们需要对session做一些特殊操作的时候，需要考虑SessionRepositoryFilter的级别和顺序。
 
 <h2 id="feign">feign框架导致session丢失问题</h2>
+
 # 1、引入feign依赖
 ```
 <dependency>
