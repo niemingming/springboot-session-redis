@@ -162,6 +162,7 @@ public interface RequestInterceptor {
   void apply(RequestTemplate template);
 }
 ```
+
 <font color="#FF0000">
  * Zero or more {@code RequestInterceptors} may be configured for purposes such as adding headers to
  * all requests.  No guarantees are give with regards to the order that interceptors are applied.
@@ -172,7 +173,8 @@ public interface RequestInterceptor {
  * public void apply(RequestTemplate input) {
  *     input.replaceHeader(&quot;X-Auth&quot;, currentToken);
  * }
- * </font>
+ </font>
+        
 注意标红的部分，大意是我们有时候需要一个或者多个RequestInterceptor去配置诸如请求头信息，还给出了授权的头部配置。
 到这里我们就明白了，我们需要实现一个RequestInterceptor，在里面将原来的请求头信息付给下游请求，实际上就是Cookie信息，
 这样sessionId就传到下游了，也就实现了共享。
